@@ -8,11 +8,12 @@
 <body>
 
     <div id="app">
-        <div>{{count}}</div>
-        <div>{{ message }}</div>
-        <div v-text="vtext"></div>
-        <div v-text="vtext">ini akan di replace</div>
-        <div v-html="vhtml"></div>
+        <div v-if="tampil">{{message}}</div>
+        
+        <div v-if="nilai > 8">lu pinter mas</div>
+        <div v-else-if="nilai <= 8 && nilai >= 6">belajar lagi</div>
+        <div v-else="nilai > 6">aih berentimo sekolah</div>
+
     </div>
 
     <script type="module">
@@ -21,20 +22,11 @@
         createApp({
             data() {
                 return {
-                    count : 0,
                     message : "hello world",
-                    vtext : "ini akan mereplace",
-                    vhtml : '<strong>Ini tulisan bold</strong>'
+                    tampil : true,
+                    nilai : 3
                 }
             },
-            methods: {
-                tambah(){
-                    this.count++
-                },
-                kurang() {
-                    this.count--
-                }
-            }
         }).mount("#app")
     </script>
 </body>
