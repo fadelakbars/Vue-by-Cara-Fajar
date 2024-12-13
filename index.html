@@ -8,9 +8,15 @@
 <body>
 
     <div id="app">
-        <ul v-for="(programer, index) in developers">
-            <li>{{programer.nama}} {{programer.position}} <button @click="hapus(index)">x</button></li>
-        </ul>
+        <button @click="count--">-</button>
+        <span>{{count}}</span>
+        <button @click="count++">+</button>
+        <br>
+        <button @click="decrement">-</button>
+        <span>{{angka}}</span>
+        <button @click="increament">+</button>
+        <button @click="sapa('hai fadel')">sapa</button>
+        <br>
     </div>
 
     <script type="module">
@@ -19,18 +25,19 @@
         createApp({
             data() {
                 return {
-                    fruits: ['mangga', 'jambu air', 'nangka', 'rambutan', 'melon'],
-                    
-                    developers: [
-                        {nama: "fadhel", position: "project lead"},
-                        {nama: "akbar", position: "frontend developer"},
-                        {nama: "sallang", position: "backend developer"}
-                    ]
+                    count: 0,
+                    angka: 0
                 }
             },
             methods: {
-                hapus(index) {
-                    this.developers.splice(index, 1)
+                decrement() {
+                    this.angka--
+                },
+                increament() {
+                    this.angka++
+                },
+                sapa(params) {
+                    alert(params)
                 }
             }
         }).mount("#app")
