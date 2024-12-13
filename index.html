@@ -8,8 +8,8 @@
 <body>
 
     <div id="app">
-        <ul v-for="(a, index) in fruits">
-            <li>{{a}} {{index}} <button @click="hapus(index)">x</button></li>
+        <ul v-for="(programer, index) in developers">
+            <li>{{programer.nama}} {{programer.position}} <button @click="hapus(index)">x</button></li>
         </ul>
     </div>
 
@@ -19,12 +19,18 @@
         createApp({
             data() {
                 return {
-                    fruits: ['mangga', 'jambu air', 'nangka', 'rambutan', 'melon']
+                    fruits: ['mangga', 'jambu air', 'nangka', 'rambutan', 'melon'],
+                    
+                    developers: [
+                        {nama: "fadhel", position: "project lead"},
+                        {nama: "akbar", position: "frontend developer"},
+                        {nama: "sallang", position: "backend developer"}
+                    ]
                 }
             },
             methods: {
                 hapus(index) {
-                    this.fruits.splice(index, 2)
+                    this.developers.splice(index, 1)
                 }
             }
         }).mount("#app")
