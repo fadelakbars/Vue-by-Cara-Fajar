@@ -8,16 +8,8 @@
 <body>
 
     <div id="app">
-        <button @click="count--">-</button>
-        <span>{{count}}</span>
-        <button @click="count++">+</button>
-        <br>
-        <button @click="decrement">-</button>
-        <span>{{angka}}</span>
-        <button @click="increament">+</button>
-        <button @click="sapa('hai fadel')">sapa</button>
-        <br>
-        <input type="text" @keydown.enter="sapa('hai fadel')">
+        <input type="text" @keydown="handlekeydown">
+        <p>{{message}}</p>
     </div>
 
     <script type="module">
@@ -26,19 +18,16 @@
         createApp({
             data() {
                 return {
-                    count: 0,
-                    angka: 0
+                    message: 'Tunggu tombol enter ditekan',
                 }
             },
             methods: {
-                decrement() {
-                    this.angka--
-                },
-                increament() {
-                    this.angka++
-                },
-                sapa(params) {
-                    alert(params)
+                handlekeydown(event){
+                    if(event.key === 'Enter') {
+                        this.message = 'tombol enter sudah ditekan'
+                    }else{
+                        this.message = 'salah tombolko anu'
+                    }
                 }
             }
         }).mount("#app")
