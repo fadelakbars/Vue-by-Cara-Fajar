@@ -8,8 +8,11 @@
 <body>
 
     <div id="app">
-        <input type="text" @keydown="handlekeydown">
-        <p>{{message}}</p>
+        <form @submit.prevent="handleSubmit">
+            <input v-modle="name" placeholder="Enter your name">
+            <button type="submit">Submit</button>
+        </form>
+        <p>{{name}}</p>
     </div>
 
     <script type="module">
@@ -18,16 +21,12 @@
         createApp({
             data() {
                 return {
-                    message: 'Tunggu tombol enter ditekan',
+                    name: '',
                 }
             },
             methods: {
-                handlekeydown(event){
-                    if(event.key === 'Enter') {
-                        this.message = 'tombol enter sudah ditekan'
-                    }else{
-                        this.message = 'salah tombolko anu'
-                    }
+                handleSubmit(){
+                    alert('form submitted with name'+this.name)
                 }
             }
         }).mount("#app")
