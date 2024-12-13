@@ -8,9 +8,10 @@
 <body>
 
     <div id="app">
-        <div v-if="stateLampu">lampu nyala</div>
-        <button @click="saklar">saklar lampu</button>
-
+        <div v-for="angka in 10">{{angka}}</div>
+        <ul v-for="angka in 10">
+            <li>{{angka}}</li>
+        </ul>
     </div>
 
     <script type="module">
@@ -19,14 +20,8 @@
         createApp({
             data() {
                 return {
-                    stateLampu : false
                 }
             },
-            methods: {
-                saklar() {
-                    this.stateLampu = !this.stateLampu
-                }
-            }
         }).mount("#app")
     </script>
 </body>
