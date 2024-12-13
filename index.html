@@ -9,7 +9,7 @@
 
     <div id="app">
         <ul v-for="(a, index) in fruits">
-            <li>{{a}} {{index}}</li>
+            <li>{{a}} {{index}} <button @click="hapus(index)">x</button></li>
         </ul>
     </div>
 
@@ -19,9 +19,14 @@
         createApp({
             data() {
                 return {
-                    fruits: ['mangga', 'jambu air', 'nangka']
+                    fruits: ['mangga', 'jambu air', 'nangka', 'rambutan', 'melon']
                 }
             },
+            methods: {
+                hapus(index) {
+                    this.fruits.splice(index, 2)
+                }
+            }
         }).mount("#app")
     </script>
 </body>
