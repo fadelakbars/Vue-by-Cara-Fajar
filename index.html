@@ -8,11 +8,8 @@
 <body>
 
     <div id="app">
-        <div v-if="tampil">{{message}}</div>
-        
-        <div v-if="nilai > 8">lu pinter mas</div>
-        <div v-else-if="nilai <= 8 && nilai >= 6">belajar lagi</div>
-        <div v-else="nilai > 6">aih berentimo sekolah</div>
+        <div v-if="stateLampu">lampu nyala</div>
+        <button @click="saklar">saklar lampu</button>
 
     </div>
 
@@ -22,11 +19,14 @@
         createApp({
             data() {
                 return {
-                    message : "hello world",
-                    tampil : true,
-                    nilai : 3
+                    stateLampu : false
                 }
             },
+            methods: {
+                saklar() {
+                    this.stateLampu = !this.stateLampu
+                }
+            }
         }).mount("#app")
     </script>
 </body>
